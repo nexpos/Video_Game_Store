@@ -1,0 +1,11 @@
+<h2>Thank you for your order!</h2>
+
+<h4>
+  <p><strong>Order #<%= @order.id %> will be shipping to you, <%= @order.user.email %> as soon as possible!</strong></p>
+</h4>
+
+<p><strong>Customer:</strong></p>
+<%= @order.user.name %><br>
+<%= @order.user.address %><br>
+<%= @order.user.city %> <%= @order.user.state %> <%= @order.user.zip %><br>
+<%= @order.user.phone %><br>

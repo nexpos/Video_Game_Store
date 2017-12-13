@@ -1,0 +1,29 @@
+<h1>Your Cart</h1>
+
+<div class="">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Unit Price</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+        <th>Delete from Cart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @line_items.each do |line_item| %>
+      <tr>
+        <td><%= line_item.product.name %></td>
+        <td><%= number_to_currency(line_item.product.price) %></td>
+        <td><%= line_item.quanity %></td>
+        <td><%= number_to_currency(line_item.line_item_total) %></td>
+        <td><%= link_to "Delete this Item", delete_from_cart_path(line_item_id: line_item.id), method: :post, class: "btn btn-danger", data: {confirm: "Are you sure?"} %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "Checkout", checkout_path, class: "btn btn-success" %>
+<%= link_to "Continue Shopping", root_path, class: "btn btn-info" %>

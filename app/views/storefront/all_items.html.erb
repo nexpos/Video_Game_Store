@@ -1,0 +1,13 @@
+<h1>Welcome to Nick's Video Game Emporium</h1>
+
+<% if current_user.nil? %>
+  <h5>Welcome to the store! Please create an account!</h5>
+<% else %>
+    <h5>Welcome back, <strong><%= current_user.name %></strong></h5>
+<% end %>
+
+<p>Do you want to play a game?</p>
+
+
+
+<%= render "storefront/dropdown" %>
